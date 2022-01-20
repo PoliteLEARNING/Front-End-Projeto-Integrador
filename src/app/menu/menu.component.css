@@ -1,0 +1,28 @@
+.bg-azul{
+    background-color: #14b79b;
+}
+
+.text-azul{
+    color: #14b79b;
+}
+
+.botao{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: white;
+    color: #14b79b;
+}
+
+.botao:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #66cdaa;
+    color: white;
+}
+
+.cor:hover{
+    color: #00e4ba;
+}
+
+.cor{
+    padding: 0px;
+    margin: 0px;
+}

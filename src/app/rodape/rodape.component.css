@@ -1,0 +1,32 @@
+.bg-azul{
+    background-color: #14b79b;
+}
+
+.text-azul{
+    color: #14b79b;
+}
+
+ul.social-network{
+    list-style: none;   
+    padding: 0;
+}
+
+ul.social-network li{
+    display: inline;
+    padding: 5px;
+}
+
+.fa {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.fa:hover {
+    font-size: 1.5rem;
+    color: #66cdaa;
+}
+
+.td{
+    background: linear-gradient(to right, #00cba9, #14b79b)
+    ;
+}
