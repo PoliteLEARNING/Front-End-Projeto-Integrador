@@ -8,6 +8,7 @@ import { EntrarComponent } from './entrar/entrar.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RodapeComponent } from './rodape/rodape.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
