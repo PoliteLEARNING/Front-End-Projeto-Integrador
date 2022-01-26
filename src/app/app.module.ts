@@ -10,6 +10,9 @@ import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FormsModule } from '@angular/forms';
+import { InicioComponent } from './inicio/inicio.component';
+
 
 @NgModule({
   declarations: [
@@ -18,12 +21,14 @@ import { HttpClientModule } from '@angular/common/http';
     EntrarComponent,
     CadastroComponent,
     MenuComponent,
-    RodapeComponent
+    RodapeComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
