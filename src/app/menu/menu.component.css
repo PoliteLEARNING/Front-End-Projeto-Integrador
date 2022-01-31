@@ -28,3 +28,25 @@
     padding: 0px;
     margin: 0px;
 }
+
+.fs-13{
+    font-size: 20pt;
+    color: bisque;
+}
+
+.fs-16{
+    font-size: 22pt;
+}
+
+a{
+    cursor: pointer;
+}
+
+.bg-cor{
+   background-color: #7E7EA0;
+    /* background: linear-gradient(to right, #8e2de2, #4a00e0) */
+}
+
+.sair{
+    border-radius: 20%;
+}

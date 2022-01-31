@@ -43,10 +43,9 @@
             <h2 class="text-center">Temas disponíveis</h2>
         </div>
     </div>
-    <div class="row mt-3 mb-5 d-flex justify-content-center glass">
+    <div class="row mt-3 mb-5 d-flex justify-content-center">
         <div class="col-md-6">
-
-            <table class="table table-hover">
+            <table class="table table-hover justify-content-center">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -56,10 +55,10 @@
                         <th scope="col" class="text-right">Editar/Apagar</th>
                     </tr>
                 </thead>
-                <body>
+                <tbody>
                     <tr *ngFor="let tema of listaTemas">
                         <th>{{tema.id}}</th> 
-                        <th>{{tema.imagem}}</th> 
+                        <th><img width="50px" height="50px" src="{{tema.imagem}}" alt=""></th> 
                         <td>{{tema.descricao}}</td>
                         <td>{{tema.relacionados}}</td>
                         <td class="d-flex justify-content-end">
@@ -71,7 +70,7 @@
                         </td>
                     </tr>
 
-                </body>
+                </tbody>
             </table>
 
         </div>
