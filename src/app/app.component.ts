@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Polite-Learning';
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
+  constructor(
+    public auth: AuthService
+  ){}
 }
