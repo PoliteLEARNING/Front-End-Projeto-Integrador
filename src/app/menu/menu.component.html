@@ -1,12 +1,13 @@
 <nav class="navbar navbar-light bg-azul sticky-top row justify-content-between m-0" style="font-family: 'Fredoka One', cursive; font-size: 25px;">
     <div class="ml-2">
+        <img src="{{foto}}" alt="Imagem Usuário" width="60px" height="80px" class="img-fluid rounded-circle">
         <a class="navbar-brand text-white" href="#"><span class="font-weight-bold">P</span>olite 
             <span class="font-weight-bold">L</span>earning<span class="font-weight-bold">.</span></a>
     </div>
     <div class="mr-2 row">
         <a class="nav-link text-white mr-2" routerLink="/entrar"><p class="cor p-0">Menu</p></a>
         <a class="nav-link text-white mr-2" routerLink="/sobre-nos"><p class="cor p-0" >Quem Somos</p></a>
-        <a class="nav-link rounded ml-2 botao" routerLink="/entrar">Entrar</a>
+        <a class="nav-link rounded ml-2 botao" (click)="sair()">Sair</a>
     </div>
 </nav>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#00cba9" fill-opacity="1"
