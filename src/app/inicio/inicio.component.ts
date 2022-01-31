@@ -37,9 +37,14 @@ export class InicioComponent implements OnInit {
     window.scroll(0,0)
 
     if(environment.token == ""){
+
    //   alert("Sua sessão expirou.")
       this.router.navigate(["/entrar"])
+
     }
+    this.authService.refreshToken();
+    this.temaService.refreshToken();
+    this.postagemService.refreshToken();
     this.getAllTemas();
     this.getAllPostagens();
 
