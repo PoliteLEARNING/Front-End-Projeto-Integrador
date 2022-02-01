@@ -43,7 +43,7 @@
         <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-nav-todasPostagens-tab">
             <!-- Inicio Card Postagens -->
           <div class="card-columns "> 
-            <div class="card text-center br" *ngFor='let postagem of listaPostagens'>
+            <div class="card text-center br" *ngFor='let postagem of listaPostagens | orderBy : key : reverse'>
               <div class="card-body d-flex justify-content-center">
                 <div class=" bp">
                 <img class="mb-4 br" src="{{postagem.imagem}}" alt="Imagem da postagem" width="250px" >
@@ -62,7 +62,7 @@
 
         <div class="tab-pane fade" id="temaPostagens" role="tabpanel" aria-labelledby="nav-temaPostagens-tab">
             <div class="card-columns" *ngFor='let tema of listaTemas'>
-              <div class="card text-center" *ngFor='let postagem of tema.postagem'>
+              <div class="card text-center" *ngFor='let postagem of tema.postagem | orderBy : key : reverse'>
                 <div class="card-body">
                   <img class="mb-4 br" src="{{postagem.imagem}}" alt="Imagem da postagem" width="250px" >
                 <h5 class="card-title m-0">{{postagem.titulo}}</h5>
@@ -76,7 +76,7 @@
 
         <div class="tab-pane fade" id="postagensPessoais" role="tabpanel" aria-labelledby="nav-postagensPessoais-tab">
           <div class="card-columns"> 
-            <div class="card text-center" *ngFor='let postagem of user.postagem'>
+            <div class="card text-center" *ngFor='let postagem of user.postagem | orderBy : key : reverse'>
               <div class="card-body">
                 <img class="mb-4 br" src="{{postagem.imagem}}" alt="Imagem da postagem" width="250px" >
                 <h5 class="card-title m-0">{{postagem.titulo}}</h5>

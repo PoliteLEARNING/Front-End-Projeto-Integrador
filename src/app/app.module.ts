@@ -11,6 +11,7 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertasComponent } from './alertas/alertas.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { OrderModule } from 'ngx-order-pipe';
 
 import { FormsModule } from '@angular/forms';
 import { InicioComponent } from './inicio/inicio.component';
@@ -45,7 +46,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    OrderModule
   ],
   providers: [{
     provide: LocationStrategy,

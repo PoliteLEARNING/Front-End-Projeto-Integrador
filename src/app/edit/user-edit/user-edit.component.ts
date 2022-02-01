@@ -48,7 +48,7 @@ export class UserEditComponent implements OnInit {
 
     if (this.user.senha != this.confirmarSenha) {
 
-      this.alertas.showAlertDanger('as senhas não coincidem, tente novamente.')
+      this.alertas.showAlertDanger('As senhas estão diferentes, tente novamente. :(')
     }else{
 
       this.authService.atualizarUsuario(this.user).subscribe((resp: User) => {
