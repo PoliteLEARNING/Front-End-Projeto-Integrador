@@ -5,6 +5,7 @@ import { AlertasService } from 'src/app/service/alertas.service';
 import { TemaService } from 'src/app/service/tema.service';
 import { environment } from 'src/environments/environment.prod';
 
+
 @Component({
   selector: 'app-tema-edit',
   templateUrl: './tema-edit.component.html',
@@ -27,7 +28,7 @@ export class TemaEditComponent implements OnInit {
       this.router.navigate(["/entrar"])
     }
     
-    let id = this.route.snapshot.params["id"]
+    let id = this.route.snapshot.params['id']
     this.findByIdTema(id)
   }
 
