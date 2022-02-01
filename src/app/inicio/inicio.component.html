@@ -31,7 +31,7 @@
         <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
           <a class="nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Postagens</a>
 
-          <a class="nav-link text-secondary font-weight-bold" id="nav-temaPostagens-tab" data-toggle="tab" href="#temaPostagens" role="tab" aria-controls="nav-temaPostagens" aria-selected="false">Postagens por tema</a>
+          <a (click)="getAllTemas()" class="nav-link text-secondary font-weight-bold" id="nav-temaPostagens-tab" data-toggle="tab" href="#temaPostagens" role="tab" aria-controls="nav-temaPostagens" aria-selected="false">Postagens por tema</a>
 
           <a (click)='findByIdUser()'  class="nav-link text-secondary font-weight-bold" id="nav-postagensPessoais-tab" data-toggle="tab" href="#postagensPessoais" role="tab" aria-controls="nav-postagensPessoais" aria-selected="false">Postagens Pessoais</a>
 
@@ -42,15 +42,18 @@
       <div class="tab-content mt-5" id="nav-tabContent">
         <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-nav-todasPostagens-tab">
             <!-- Inicio Card Postagens -->
-          <div class="card-columns"> 
-            <div class="card text-center" *ngFor='let postagem of listaPostagens'>
-              <div class="card-body">
-                <img class="border-circle" src="{{postagem.usuario.foto}}" alt="" width="50px">
+          <div class="card-columns "> 
+            <div class="card text-center br" *ngFor='let postagem of listaPostagens'>
+              <div class="card-body d-flex justify-content-center">
+                <div class=" bp">
+                <img class="mb-4 br" src="{{postagem.imagem}}" alt="Imagem da postagem" width="250px" >
                 <h5 class="card-title m-0">{{postagem.titulo}}</h5>
                 <small class="text-muted"> Tema: {{postagem.tema.descricao}}</small>
                 <p class="card-text mt-3">{{postagem.conteudo}}</p>
-                <p class="card-text"><small class="text-muted">{{postagem.data | date: 'dd/MM/yyy'}} às {{postagem.data | date: 'HH:mm' }}</small></p>
-                <p class="card-text"><small class="text-muted">por: {{postagem.usuario.nome}}</small></p>
+                <p class="mb-0 pb-0"><small class="text-muted">{{postagem.data | date: 'dd/MM/yyy'}} às {{postagem.data | date: 'HH:mm' }}</small></p>
+                <p class="card-text mt-0 pt-0 mb-0 pb-1"><small class="text-muted">por: {{postagem.usuario.nome}}</small></p>
+                <img class="border-circle" src="{{postagem.usuario.foto}}" alt="foto do usuario" width="50px">
+              </div>
               </div>
             </div>
           </div>
@@ -58,15 +61,26 @@
         </div>
 
         <div class="tab-pane fade" id="temaPostagens" role="tabpanel" aria-labelledby="nav-temaPostagens-tab">
-            Postagens por tema          
+            <div class="card-columns" *ngFor='let tema of listaTemas'>
+              <div class="card text-center" *ngFor='let postagem of tema.postagem'>
+                <div class="card-body">
+                  <img class="mb-4 br" src="{{postagem.imagem}}" alt="Imagem da postagem" width="250px" >
+                <h5 class="card-title m-0">{{postagem.titulo}}</h5>
+                <small class="text-muted"> Tema: {{tema.descricao}}</small>
+                <p class="card-text mt-3">{{postagem.conteudo}}</p>
+                <p class="card-text"><small class="text-muted">{{postagem.data | date: 'dd/MM/yyy'}} às {{postagem.data | date: 'HH:mm' }}</small></p>
+                </div>
+              </div>
+            </div>          
         </div>
 
         <div class="tab-pane fade" id="postagensPessoais" role="tabpanel" aria-labelledby="nav-postagensPessoais-tab">
           <div class="card-columns"> 
             <div class="card text-center" *ngFor='let postagem of user.postagem'>
               <div class="card-body">
+                <img class="mb-4 br" src="{{postagem.imagem}}" alt="Imagem da postagem" width="250px" >
                 <h5 class="card-title m-0">{{postagem.titulo}}</h5>
-                <small class="text-muted"> Tema: {{postagem.tema.descricao}}</small>
+                <small class="text-muted"> Tema: {{tema.descricao}}</small>
                 <p class="card-text mt-3">{{postagem.conteudo}}</p>
                 <p class="card-text"><small class="text-muted">{{postagem.data | date: 'dd/MM/yyy'}} às {{postagem.data | date: 'HH:mm' }}</small></p>
 
