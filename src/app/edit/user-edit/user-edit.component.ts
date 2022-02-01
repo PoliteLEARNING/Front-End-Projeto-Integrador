@@ -18,7 +18,7 @@ export class UserEditComponent implements OnInit {
   tipoUsuario: string
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
     private alertas: AlertasService
@@ -61,7 +61,6 @@ export class UserEditComponent implements OnInit {
         environment.id = 0
         this.router.navigate(['/entrar'])
     })
-
   }
 
   }
