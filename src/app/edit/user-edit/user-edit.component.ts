@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/User';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -19,7 +20,8 @@ export class UserEditComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -46,13 +48,13 @@ export class UserEditComponent implements OnInit {
 
     if (this.user.senha != this.confirmarSenha) {
 
-      alert('as senhas não coincidem')
+      this.alertas.showAlertDanger('as senhas não coincidem, tente novamente.')
     }else{
 
       this.authService.atualizarUsuario(this.user).subscribe((resp: User) => {
         this.user = resp
         this.router.navigate(['/entrar'])
-        alert('Usuário atualizado, faça o login novamente.')
+        this.alertas.showAlertSuccess('Usuário atualizado, faça o login novamente.')
         environment.token = ''
         environment.foto = ''
         environment.nome = ''
