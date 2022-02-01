@@ -41,9 +41,20 @@
 
       <div class="tab-content mt-5" id="nav-tabContent">
         <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-nav-todasPostagens-tab">
+
+          <div class="row d-flex justify-content-center mt-5 mb-5">
+            <div class="col-md-4">
+              <div class="form-group">
+                <input type="text" class="form-control" id="titulo"
+                placeholder="Digite uma postagem para pesquisar"
+                [(ngModel)]='tituloPost' (keyup)='findByTituloPostagem()'>
+              </div>
+            </div>
+          </div>
+
             <!-- Inicio Card Postagens -->
           <div class="card-columns "> 
-            <div class="card text-center br" *ngFor='let postagem of listaPostagens'>
+            <div class="card text-center br" *ngFor='let postagem of listaPostagens | orderBy : key : reverse'>
               <div class="card-body d-flex justify-content-center">
                 <div class=" bp">
                 <img class="mb-4 br" src="{{postagem.imagem}}" alt="Imagem da postagem" width="250px" >
@@ -57,12 +68,22 @@
               </div>
             </div>
           </div>
-            <!-- Fim Card Postagens -->
         </div>
 
         <div class="tab-pane fade" id="temaPostagens" role="tabpanel" aria-labelledby="nav-temaPostagens-tab">
+
+          <div class="row d-flex justify-content-center mt-5 mb-5">
+            <div class="col-md-4">
+              <div class="form-group">
+                <input type="text" class="form-control" id="titulo"
+                placeholder="Digite um tema para pesquisar"
+                [(ngModel)]='nomeTema' (keyup)='findByNomeTema()'>
+              </div>
+            </div>
+          </div>
+
             <div class="card-columns" *ngFor='let tema of listaTemas'>
-              <div class="card text-center" *ngFor='let postagem of tema.postagem'>
+              <div class="card text-center" *ngFor='let postagem of tema.postagem | orderBy : key : reverse'>
                 <div class="card-body">
                   <img class="mb-4 br" src="{{postagem.imagem}}" alt="Imagem da postagem" width="250px" >
                 <h5 class="card-title m-0">{{postagem.titulo}}</h5>
@@ -75,8 +96,9 @@
         </div>
 
         <div class="tab-pane fade" id="postagensPessoais" role="tabpanel" aria-labelledby="nav-postagensPessoais-tab">
+
           <div class="card-columns"> 
-            <div class="card text-center" *ngFor='let postagem of user.postagem'>
+            <div class="card text-center" *ngFor='let postagem of user.postagem | orderBy : key : reverse'>
               <div class="card-body">
                 <img class="mb-4 br" src="{{postagem.imagem}}" alt="Imagem da postagem" width="250px" >
                 <h5 class="card-title m-0">{{postagem.titulo}}</h5>
@@ -92,10 +114,9 @@
             </div>
           </div>
         </div>
-
       </div>
 </div>
-
+<!-- Fim Card Postagens -->
 
   <!-- Modal -->
   <div class="modal fade" id="novaPostagem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -128,7 +149,6 @@
                 <select name="tema" id="tema" class="form-control" [(ngModel)]="idTema" (change)="findByIdTema()">
                     <option *ngFor='let postagem of listaTemas' value="{{postagem.id}}">{{postagem.descricao}}</option>
                 </select>
-
         
         <div class="modal-footer">
           <button type="button" class="btn btc mr-3" data-dismiss="modal">Cancelar</button>
