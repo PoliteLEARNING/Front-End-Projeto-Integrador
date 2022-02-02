@@ -85,6 +85,10 @@ export class InicioComponent implements OnInit {
     this.postagem.usuario = this.user
     console.log(this.postagem)
 
+    if(this.postagem.imagem == '' || this.postagem.imagem == null){
+      this.postagem.imagem = 'vazio'
+    }
+
     this.postagemService.postPostagem(this.postagem).subscribe((resp:Postagem)=>{
       this.postagem = resp
       this.alertas.showAlertSuccess("Sua postagem foi feita! :)")

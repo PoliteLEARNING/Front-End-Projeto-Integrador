@@ -28,7 +28,7 @@ export class TemaComponent implements OnInit {
         }
 
         if(environment.tipo != 'adm'){
-          this.alertas.showAlertInfo('Você precisa ser adm para acessar essa rota...')
+          this.alertas.showAlertInfo('Aqui não pode, fale com um professor!')
           this.router.navigate(['/inicio'])
         }
   
@@ -42,6 +42,11 @@ export class TemaComponent implements OnInit {
   }
 
   cadastrarTema(){
+
+    if(this.tema.imagem === '' || this.tema.imagem === null){
+      this.tema.imagem = 'vazio'
+    }
+
     this.temaService.postTema(this.tema).subscribe((resp: Tema)=>{
       this.tema = resp
       this.alertas.showAlertSuccess("Tema cadastrado com sucesso!")
