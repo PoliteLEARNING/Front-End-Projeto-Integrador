@@ -4,8 +4,7 @@
         <div class="col-md-12">
 
             <a routerLink="/inicio" class="text-left text-dark">
-                <i class="fa fa-angle-double-left"></i> Início
-            </a>
+                <i class="fa fa-arrow-left inicio align-items-start"></i><span class="inicio2 pl-2">Início</span></a>
 
             <h1 class="fs-13 text-center">Temas</h1>
             <h5 class="fs-18 text-center">Veja todos os temas disponíveis ou cadastre um novo:</h5>
@@ -18,7 +17,7 @@
 
                             <input [(ngModel)]="tema.relacionados" type="text" class="form-control mt-4 pr-1 pl-1" id="relacionados"
                             placeholder="Digite algo relacionado ao tema">
-
+                        
                             <input [(ngModel)]="tema.imagem"  type="text" class="form-control mt-4 pr-1 pl-1" id="imagem"
                             placeholder="Coloque uma imagem sobre o tema">
 
@@ -48,7 +47,6 @@
             <table class="table table-hover justify-content-center">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Foto</th>
                         <th scope="col">Descrição</th>
                         <th scope="col">Relacionados</th>
@@ -57,19 +55,20 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let tema of listaTemas">
-                        <th>{{tema.id}}</th> 
-                        <th><img width="50px" height="50px" src="{{tema.imagem}}" alt=""></th> 
+                        <ng-container *ngIf="tema.imagem !== 'vazio' else elseBlock">
+                        <th><img width="50px" height="50px" [src]='tema.imagem' alt="Foto tema"></th> 
+                        </ng-container>
+                        <ng-template #elseBlock>SEM FOTO</ng-template>
                         <td>{{tema.descricao}}</td>
                         <td>{{tema.relacionados}}</td>
                         <td class="d-flex justify-content-end">
                             <button class="btn pen mr-3" [routerLink]="['/tema-edit',tema.id]"><i class="fa fa-pencil"
                                     aria-hidden="true"></i>
                             </button>
-                            <button class="btn btn-danger" [routerLink]="['/tema-delete',tema.id]"><i class="fa fa-ban"
+                            <button class="btn btn-danger" [routerLink]="['/tema-delete',tema.id]"><i class="fa fa-times-circle"
                                     aria-hidden="true"></i></button>
                         </td>
                     </tr>
-
                 </tbody>
             </table>
 

@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { User } from '../model/User';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
@@ -17,28 +18,31 @@ export class InicioComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
+  tituloPost: string
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
+  nomeTema: string
 
   user: User = new User()
   idUser = environment.id
 
+  key = 'data'
+  reverse = true
 
   constructor(
     private router: Router,
     private temaService: TemaService,
     private authService: AuthService,
-    private postagemService: PostagemService
+    private postagemService: PostagemService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
     window.scroll(0,0)
 
     if(environment.token == ""){
-
-   //   alert("Sua sessão expirou.")
       this.router.navigate(["/entrar"])
 
     }
@@ -81,12 +85,36 @@ export class InicioComponent implements OnInit {
     this.postagem.usuario = this.user
     console.log(this.postagem)
 
+    if(this.postagem.imagem == '' || this.postagem.imagem == null){
+      this.postagem.imagem = 'vazio'
+    }
+
     this.postagemService.postPostagem(this.postagem).subscribe((resp:Postagem)=>{
       this.postagem = resp
-      alert("Postagem feita!")
+      this.alertas.showAlertSuccess("Sua postagem foi feita! :)")
       this.postagem = new Postagem()
       this.getAllPostagens()
     })
+  }
+
+  findByTituloPostagem(){
+    if(this.tituloPost == ''){
+      this.getAllPostagens()
+    } else {
+      this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[]) => {
+        this.listaPostagens = resp
+      })
+    }
+  }
+  
+  findByNomeTema(){
+    if(this.nomeTema == ''){
+      this.getAllTemas()
+    } else {
+      this.temaService.getByNomeTema(this.nomeTema).subscribe((resp: Tema[]) => {
+        this.listaTemas = resp
+      })
+    }
   }
 
 }
