@@ -2,3 +2,8 @@
     min-height: 600px;
     min-width: 300px;
 }
+.bg-color{
+    background-image: url("https://i.imgur.com/Y7PwLx9.jpg");
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
