@@ -154,7 +154,7 @@ h2 {
   }
   
   .buttonfx:before{
-    background: #a1caff; /* button default background color */
+    background: #2bb673; /* button default background color */
     z-index: -2;
     transform: translate3D(0,0,0);
   }
