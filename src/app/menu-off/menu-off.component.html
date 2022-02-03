@@ -1,0 +1,40 @@
+<nav class="navbar navbar-light bg sticky-top row justify-content-between m-0" style="font-family: 'Fredoka One', cursive">
+    <div class="ml-2 d-flex justify-content-center align-items-center">
+         <a class="gradient-text" href="#">POLITE LEARNING</a>
+    </div>
+    <div class="mr-2 row .justify-content-center:">
+        <a class="nav-link mr-2"  href="#aprendasobre"><p routerLink="/pag-off" class="cor p-0" >Aprenda Sobre</p></a>
+        <a class="nav-link mr-2" href="#missao"><p routerLink="/pag-off" class="cor p-0" >Missão</p></a>
+        <a class="nav-link mr-2" routerLink="/sobre-nos"><p class="cor p-0" >Quem Somos</p></a>
+    </div>    
+    <button type="button" class="btn btn-lg btn-sm pp" data-toggle="modal" data-target="#plataforma">Acesse a plataforma</button>
+</nav>
+
+  
+  <div class="modal fade" id="plataforma" tabindex="-1" aria-labelledby="plataformaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content glass">
+        <div class="modal-header">
+          <h5 class="modal-title" id="plataformaLabel">E então??</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 ml-auto">
+        <a routerLink="/entrar" data-dismiss="modal"><img src="https://i.imgur.com/7CK0ORu.jpg"  alt="" width="100" height="100"></a>
+            </div>
+            <div class="col-md-6 ml-auto">
+        <a  routerLink="/cadastro" data-dismiss="modal"><img src="https://i.imgur.com/jBONTod.jpg"  alt="" width="100" height="100"></a>
+            </div>
+          </div>
+    </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" routerLink="/pag-off" class="btn btn-lg btn-sm pp" data-dismiss="modal">Vamos descobrir mais sobre o Polite? </button>
+        </div>
+      </div>
+    </div>
+  </div>
