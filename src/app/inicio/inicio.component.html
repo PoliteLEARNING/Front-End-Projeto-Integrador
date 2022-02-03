@@ -12,8 +12,8 @@
             </div>
             <div class="row d-flex justify-content-center mt-5 mb-5">
                 <div class="col-md-6">
-                    <button class="btn bt mr-2" data-toggle="modal" data-target="#novaPostagem">Nova Postagem</button>
-                    <a class= "btn bt2 btn-outline" href="#postagens">Ver Postagens</a>
+                    <button class="bn632-hover bn22 mr-2" data-toggle="modal" data-target="#novaPostagem">Nova Postagem</button>
+              <a href="#postagens"><button class= "bn632-hover bn18 bt2 btn-outline">Ver Postagens</button></a> 
                 </div>
             </div>     
         </div>
@@ -26,7 +26,7 @@
 <!-- Fim apresentação -->
 
 <!-- Início Postagens -->
-<div class="container mb-5 mt-5" id= "postagens">
+<div class="container mb-5 mt-5" id="postagens">
     <nav>
         <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
           <a class="nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Postagens</a>
@@ -41,7 +41,6 @@
 
       <div class="tab-content mt-5" id="nav-tabContent">
         <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-nav-todasPostagens-tab">
-
           <div class="row d-flex justify-content-center mt-5 mb-5">
             <div class="col-md-4">
               <div class="form-group">
@@ -53,10 +52,11 @@
           </div>
 
             <!-- Inicio Card Postagens -->
-          <div class="card-columns "> 
+            <!-- Todas Postagens -->
+          <div class="card-columns"> 
             <div class="card text-center br" *ngFor='let postagem of listaPostagens | orderBy : key : reverse'>
-              <div class="card-body d-flex justify-content-center">
-                <div class=" bp">
+              <div class="card-body d-flex justify-content-center ">
+                <div class=" bp p-4">
                   <ng-container *ngIf="postagem.imagem !== 'vazio'">
                     <img class="mb-4 br" [src]='postagem.imagem' alt="Imagem da postagem" width="250px" >
                   </ng-container>
@@ -65,12 +65,14 @@
                 <p class="card-text mt-3">{{postagem.conteudo}}</p>
                 <p class="mb-0 pb-0"><small class="text-muted">{{postagem.data | date: 'dd/MM/yyy'}} às {{postagem.data | date: 'HH:mm' }}</small></p>
                 <p class="card-text mt-0 pt-0 mb-0 pb-1"><small class="text-muted">por: {{postagem.usuario.nome}}</small></p>
-                <img class="border-circle" src="{{postagem.usuario.foto}}" alt="foto do usuario" width="50px">
+                <img class="rounded-circle " src="{{postagem.usuario.foto}}" alt="foto do usuario" width="50px">
               </div>
               </div>
             </div>
           </div>
         </div>
+        <!-- Fim Todas Postagem -->
+
 
         <div class="tab-pane fade" id="temaPostagens" role="tabpanel" aria-labelledby="nav-temaPostagens-tab">
 
@@ -84,9 +86,11 @@
             </div>
           </div>
 
+            <!-- Postagens por Tema -->
             <div class="card-columns" *ngFor='let tema of listaTemas'>
-              <div class="card text-center" *ngFor='let postagem of tema.postagem | orderBy : key : reverse'>
+              <div class="card text-center br" *ngFor='let postagem of tema.postagem | orderBy : key : reverse'>
                 <div class="card-body">
+                  <div class=" bp p-4">
                   <ng-container *ngIf="postagem.imagem !== 'vazio'">
                     <img class="mb-4 br" [src]='postagem.imagem' alt="Imagem da postagem" width="250px" >
                   </ng-container>
@@ -96,32 +100,38 @@
                 <p class="card-text"><small class="text-muted">{{postagem.data | date: 'dd/MM/yyy'}} às {{postagem.data | date: 'HH:mm' }}</small></p>
                 </div>
               </div>
-            </div>          
+            </div>
+          </div>          
         </div>
+        <!-- Fim Postagens por Tema -->
 
+        <!-- Postagens Pessoais -->
         <div class="tab-pane fade" id="postagensPessoais" role="tabpanel" aria-labelledby="nav-postagensPessoais-tab">
-
           <div class="card-columns"> 
-            <div class="card text-center" *ngFor='let postagem of user.postagem | orderBy : key : reverse'>
-              <div class="card-body">
+            <div class="card text-center br" *ngFor='let postagem of user.postagem | orderBy : key : reverse'>
+              <div class="card-body d-flex justify-content-center">
+                <div class="bp p-4">
                 <ng-container *ngIf="postagem.imagem !== 'vazio'">
                   <img class="mb-4 br" [src]='postagem.imagem' alt="Imagem da postagem" width="250px" >
                 </ng-container>
                 <h5 class="card-title m-0">{{postagem.titulo}}</h5>
-                <small class="text-muted"> Tema: {{tema.descricao}}</small>
+                <small class="text-muted"> Tema: {{postagem.tema.descricao}}</small>
                 <p class="card-text mt-3">{{postagem.conteudo}}</p>
                 <p class="card-text"><small class="text-muted">{{postagem.data | date: 'dd/MM/yyy'}} às {{postagem.data | date: 'HH:mm' }}</small></p>
 
-                <a [routerLink]="['/postagem-edit',postagem.id]" class="text-info mr-3" href="">Editar</a>
+                <!-- <a [routerLink]="['/postagem-edit',postagem.id]" class="bn632-hover bn26 mr-3" href="">Editar</a> -->
+                <button [routerLink]="['/postagem-edit',postagem.id]" class="bn632-hover bn26 m-0 p-0 w-25" href="">Editar</button>
 
-                <a [routerLink]="['/postagem-delete',postagem.id]" class="text-danger" href="">Apagar</a>
-                
+                <!-- <a [routerLink]="['/postagem-delete',postagem.id]" class="bn632-hover bn28" href="">Apagar</a> -->
+                <button [routerLink]="['/postagem-delete',postagem.id]" class="bn632-hover bn28 w-25" href="">Apagar</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 </div>
+<!-- Fim Postagens Pessoais -->
 <!-- Fim Card Postagens -->
 
   <!-- Modal -->
@@ -157,8 +167,8 @@
                 </select>
         
         <div class="modal-footer">
-          <button type="button" class="btn btc mr-3" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btc2" (click)= "publicar()" data-dismiss="modal">Publicar</button>
+          <button type="button" class="bn632-hover bn28 mr-3" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="bn632-hover bn22" (click)= "publicar()" data-dismiss="modal">Publicar</button>
         </div>
       </div>
     </div>
