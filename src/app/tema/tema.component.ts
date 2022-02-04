@@ -43,7 +43,7 @@ export class TemaComponent implements OnInit {
 
   cadastrarTema(){
 
-    if(this.tema.imagem === '' || this.tema.imagem === null){
+    if(this.tema.imagem === '' || this.tema.imagem == null){
       this.tema.imagem = 'vazio'
     }
 

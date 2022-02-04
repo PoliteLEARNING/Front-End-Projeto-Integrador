@@ -8,16 +8,18 @@ import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { PagOffComponent } from './pag-off/pag-off.component';
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
 import { TemaComponent } from './tema/tema.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'entrar', pathMatch: 'full'},
+  {path: '', redirectTo: 'pag-off', pathMatch: 'full'},
   {path: 'entrar', component: EntrarComponent},
   {path: 'cadastro', component: CadastroComponent},
 
   {path: "sobre-nos", component: SobreNosComponent},
   {path: "inicio", component: InicioComponent},
+  {path: 'pag-off', component: PagOffComponent},
   
   {path: "temas", component: TemaComponent},
   {path: "tema-edit/:id", component: TemaEditComponent},

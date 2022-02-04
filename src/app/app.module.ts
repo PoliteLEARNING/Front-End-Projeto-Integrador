@@ -22,6 +22,8 @@ import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.compon
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PagOffComponent } from './pag-off/pag-off.component';
+import { MenuOffComponent } from './menu-off/menu-off.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     PostagemEditComponent,
     PostagemDeleteComponent,
     UserEditComponent,
-    AlertasComponent
+    AlertasComponent,
+    PagOffComponent,
+    MenuOffComponent
     
   ],
   imports: [
