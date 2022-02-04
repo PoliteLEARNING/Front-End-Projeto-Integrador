@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&family=Fredoka+One&family=Poppins:wght@200&display=swap');
+
+.bg-azul{
+    background-color: #14b79b;
+}
+
+.text-azul{
+    color: #14b79b;
+}
+
+.botao{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: white;
+    color: #14b79b;
+}
+
+.botao:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #66cdaa;
+    color: white;
+}
+
+.cor:hover{
+    color: #00e4ba;
+}
+
+.cor{
+    padding: 0px;
+    margin: 0px;
+}
+
+.fs-13{
+    font-size: 20pt;
+    color: bisque;
+}
+
+.fs-16{
+    font-size: 22pt;
+}
+
+a{
+    cursor: pointer;
+}
+
+.bg-cor{
+   background-color: #7E7EA0;
+    /* background: linear-gradient(to right, #8e2de2, #4a00e0) */
+}
+
+.sair{
+    border-radius: 20%;
+}

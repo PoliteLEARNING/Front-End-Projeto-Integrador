@@ -1,0 +1,44 @@
+<nav class="navbar navbar-light bg sticky-top row justify-content-between m-0" style="font-family: 'Fredoka One', cursive">
+    <div class="ml-2 d-flex justify-content-center align-items-center">
+         <a class="gradient-text lmenu" href="#">POLITE LEARNING</a>
+    </div>
+    <div class="mr-2 row .justify-content-center">
+        <a class="nav-link mr-2 pt-3 lmenu"  href="#aprendasobre"><p routerLink="/pag-off">Aprenda Sobre</p></a>
+        <a class="nav-link mr-2 pt-3 lmenu" href="#missao"><p routerLink="/pag-off">Missão</p></a>
+        <a class="nav-link mr-2 pt-3 lmenu" routerLink="/sobre-nos"><p >Quem Somos</p></a>
+    </div>    
+    <button type="button" class="btn btn-lg btn-sm pp lmenu buttonfx angleinleft bouncein
+    mb-0 " data-toggle="modal" data-target="#plataforma">Acesse a plataforma</button>
+</nav>
+
+  <!-- Modal -->
+  <div class="modal fade" id="plataforma" tabindex="-1" aria-labelledby="plataformaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content glass bmodal">
+        <div class="modal-header">
+          <h5 class="modal-title text-light" id="plataformaLabel">Para onde vamos??</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 ml-auto">
+        <a routerLink="/entrar" data-dismiss="modal"><img src="https://i.imgur.com/pNvmJfp.png"  alt="Foto Login" width="150" height="150"></a>
+        <p class="text-light lmenu">Vamos entrar no site?</p>
+            </div>
+            <div class="col-md-6 ml-auto">
+        <a  routerLink="/cadastro" data-dismiss="modal"><img src="https://i.imgur.com/j4x1RXr.png"  alt="Foto Cadastro" width="150" height="150"></a>
+        <p class="text-light lmenu">Vamos criar uma conta?</p>
+            </div>
+          </div>
+    </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" routerLink="/pag-off" class="btn btn-lg btn-sm btg text-light lmenu" data-dismiss="modal">Vamos descobrir mais sobre o Polite? </button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Fim Modal -->

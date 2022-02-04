@@ -1,0 +1,44 @@
+.fs-13{
+    font-size: 45pt;
+
+}
+
+.bv{
+    background-color: rgba(255,255,255);
+}
+
+.bt{
+    background-color: transparent;
+    border-top: violet solid 1px;
+    border-bottom: violet solid 1px;
+    
+   
+}
+.bt:hover{
+    background-color: #d8bfd8;
+    text-decoration-color: aliceblue;
+}
+
+.glass{
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 50px;
+    border-radius: 5px;
+    backdrop-filter: blur(8px);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.pen{
+    background-color:rgb(113, 226, 142) ;
+}
+.pen:hover{
+    background-color:#1aca40 ;
+}
+
+.inicio{
+    font-size: 40px;
+}
+
+.inicio2{
+    font-size: 40px;
+}
